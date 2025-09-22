@@ -1,0 +1,119 @@
+
+        .fade-in {
+            animation: fadeIn 0.3s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .sidebar-item.active {
+            background-color: #EDE9FE;
+            border-right: 4px solid #4F46E5;
+            color: #4F46E5;
+            font-weight: 600;
+        }
+        .dark .sidebar-item.active {
+            background-color: #3730A3;
+            color: white;
+        }
+        .low-stock {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(245, 158, 11, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0); }
+        }
+        .out-of-stock {
+            animation: pulseRed 2s infinite;
+        }
+        @keyframes pulseRed {
+            0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(239, 68, 68, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
+        }
+        .arabic-font {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .has-return {
+            background-color: #e5467826 !important;
+        }
+        .date-separator {
+            background-color: #f3f4f6;
+            font-weight: bold;
+            text-align: center;
+            padding: 8px;
+            border-top: 2px solid #e5e7eb;
+            border-bottom: 2px solid #e5e7eb;
+        }
+        .dark .date-separator {
+            background-color: #374151;
+            border-color: #4b5563;
+        }
+        /* تخصيص رسالة النجاح */
+        .custom-alert {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 10000;
+            padding: 15px 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            display: flex;
+            align-items: center;
+            animation: slideIn 0.3s ease-out, fadeOut 0.5s ease-in 2.5s forwards;
+            max-width: 350px;
+        }
+        .custom-alert.success {
+            background-color: #10B981;
+            color: white;
+        }
+        .custom-alert.error {
+            background-color: #EF4444;
+            color: white;
+        }
+        .custom-alert i {
+            margin-left: 10px;
+            font-size: 1.2rem;
+        }
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        @keyframes fadeOut {
+            from { opacity: 1; }
+            to { opacity: 0; visibility: hidden; }
+        }
+
+
+
+
+
+
+/* أنماط PWA */
+#installPrompt {
+    animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+    from { transform: translateY(100%); }
+    to { transform: translateY(0); }
+}
+
+#offlineMessage {
+    animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+    from { transform: translateY(-100%); }
+    to { transform: translateY(0); }
+}
+
+/* تحسينات للعرض كتطبيق */
+@media all and (display-mode: standalone) {
+    body {
+        -webkit-user-select: none;
+        -webkit-touch-callout: none;
+        -webkit-tap-highlight-color: transparent;
+    }
+}
