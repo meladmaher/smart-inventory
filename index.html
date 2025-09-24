@@ -30,11 +30,8 @@
             darkMode: 'class'
         }
     </script>
-
 </head>
 <body class="bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-200 min-h-screen arabic-font">
-
-
     <!-- Main Container -->
     <div class="flex flex-col md:flex-row min-h-screen">
         <!-- Sidebar -->
@@ -47,7 +44,7 @@
                     <h1 class="text-xl font-bold">نظام المخزون</h1>
                 </div>
             </div>
-            
+
             <nav class="p-4">
                 <ul class="space-y-2">
                     <li><a href="#dashboard" class="sidebar-item block px-4 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700"><i class="fas fa-chart-line mr-3"></i> لوحة التحكم</a></li>
@@ -60,7 +57,7 @@
                     <li><a href="#settings" class="sidebar-item block px-4 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700"><i class="fas fa-cog mr-3"></i> الإعدادات</a></li>
                 </ul>
             </nav>
-            
+
             <div class="p-4 border-t border-gray-200 dark:border-gray-700 mt-auto">
                 <div class="flex justify-between items-center">
                     <button id="darkModeToggle" class="p-2 rounded-full bg-gray-200 dark:bg-gray-700">
@@ -71,8 +68,38 @@
                     <button id="restoreBtn" class="px-3 py-1 bg-primary text-white rounded-lg text-sm">استعادة</button>
                 </div>
             </div>
+
+<!-- ---------------------  -->
+
+
+  <div class="text-center mb-4">
+      <h3 class="font-bold text-lg">وسائل التواصل</h3>
+      <p class="text-gray-600 dark:text-gray-300">مطور النظام</p>
+      <p class="text-gray-600 dark:text-gray-300">ميلاد ماهر</p>
+
+  </div>
+            <div class="space-y-3">
+                <!-- واتساب -->
+                <a href="https://wa.me/201128467630" target="_blank" class="flex items-center p-2 rounded-lg bg-green-50 dark:bg-green-900/20 text-green-700 dark:text-green-300 hover:bg-green-100 dark:hover:bg-green-900/30 transition-colors">
+                    <i class="fab fa-whatsapp ml-2"></i>
+                    <span>واتساب</span>
+                </a>
+
+                <!-- جيت هاب -->
+                <a href="https://github.com/meladmaher" target="_blank" class="flex items-center p-2 rounded-lg bg-gray-50 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors">
+                    <i class="fab fa-github ml-2"></i>
+                    <span>GitHub</span>
+                </a>
+
+                <!-- البريد الإلكتروني -->
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=kharboshe4@gmail.com" target="_blank" class="flex items-center p-2 rounded-lg bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-300 hover:bg-blue-100 dark:hover:bg-blue-900/30 transition-colors">
+                    <i class="fas fa-envelope ml-2"></i>
+                    <span>البريد الإلكتروني</span>
+                </a>
+            </div>
+
         </aside>
-        
+
         <!-- Main Content -->
         <main class="flex-1 p-4 md:p-8">
             <!-- Dashboard Section -->
@@ -81,7 +108,38 @@
                     <h2 class="text-2xl font-bold">لوحة التحكم</h2>
                     <div class="text-sm text-gray-500 dark:text-gray-400">تاريخ اليوم: <span id="currentDate"></span></div>
                 </div>
-                
+
+                <!-- Sales Statistics Filters -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow p-6 mb-6">
+                    <h3 class="text-lg font-medium mb-4">إحصائيات المبيعات</h3>
+                    <div class="stats-filter">
+                        <label><input type="checkbox" id="dailyFilter" checked class="stats-checkbox"> يومي</label>
+                        <label><input type="checkbox" id="weeklyFilter" class="stats-checkbox"> أسبوعي</label>
+                        <label><input type="checkbox" id="monthlyFilter" class="stats-checkbox"> شهري</label>
+                        <label><input type="checkbox" id="yearlyFilter" class="stats-checkbox"> سنوي</label>
+                        <label><input type="checkbox" id="allTimeFilter" class="stats-checkbox"> كل الوقت</label>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                        <div class="bg-gray-50 dark:bg-gray-700 rounded-lg p-4">
+                            <h4 class="text-sm font-medium text-gray-500 dark:text-gray-400">إجمالي المبيعات</h4>
+                            <p id="totalSales" class="text-2xl font-bold mt-1">ج.م 0.00</p>
+                        </div>
+                        <div class="bg-gray-50 dark:bg-gray-700 rounded-lg p-4">
+                            <h4 class="text-sm font-medium text-gray-500 dark:text-gray-400">صافي المبيعات</h4>
+                            <p id="netSales" class="text-2xl font-bold mt-1">ج.م 0.00</p>
+                        </div>
+                        <div class="bg-gray-50 dark:bg-gray-700 rounded-lg p-4">
+                            <h4 class="text-sm font-medium text-gray-500 dark:text-gray-400">إجمالي المرتجعات</h4>
+                            <p id="totalReturns" class="text-2xl font-bold mt-1">ج.م 0.00</p>
+                        </div>
+                        <div class="bg-gray-50 dark:bg-gray-700 rounded-lg p-4">
+                            <h4 class="text-sm font-medium text-gray-500 dark:text-gray-400">عدد الفواتير</h4>
+                            <p id="invoicesCount" class="text-2xl font-bold mt-1">0</p>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- Stats Cards -->
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
                     <div class="bg-white dark:bg-gray-800 rounded-xl shadow p-6">
@@ -95,7 +153,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="bg-white dark:bg-gray-800 rounded-xl shadow p-6">
                         <div class="flex justify-between">
                             <div>
@@ -107,7 +165,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="bg-white dark:bg-gray-800 rounded-xl shadow p-6">
                         <div class="flex justify-between">
                             <div>
@@ -119,7 +177,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="bg-white dark:bg-gray-800 rounded-xl shadow p-6">
                         <div class="flex justify-between">
                             <div>
@@ -132,14 +190,14 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Charts -->
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
                     <div class="bg-white dark:bg-gray-800 rounded-xl shadow p-6">
                         <h3 class="text-lg font-medium mb-4">توزيع المخزون</h3>
                         <canvas id="stockChart" height="250"></canvas>
                     </div>
-                    
+
                     <div class="bg-white dark:bg-gray-800 rounded-xl shadow p-6">
                         <h3 class="text-lg font-medium mb-4">آخر المبيعات</h3>
                         <div class="overflow-x-auto">
@@ -158,7 +216,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Low Stock Alerts -->
                 <div class="bg-white dark:bg-gray-800 rounded-xl shadow p-6 mb-8">
                     <h3 class="text-lg font-medium mb-4 flex items-center">
@@ -169,7 +227,7 @@
                     </div>
                 </div>
             </section>
-            
+
             <!-- Products Management Section -->
             <section id="products" class="page-section hidden">
                 <div class="flex justify-between items-center mb-6">
@@ -178,7 +236,7 @@
                         <i class="fas fa-plus mr-2"></i> إضافة منتج
                     </button>
                 </div>
-                
+
                 <div class="bg-white dark:bg-gray-800 rounded-xl shadow overflow-hidden mb-8">
                     <div class="p-4 border-b border-gray-200 dark:border-gray-700 flex justify-between items-center">
                         <div class="relative">
@@ -197,7 +255,7 @@
                             </select>
                         </div>
                     </div>
-                    
+
                     <div class="overflow-x-auto">
                         <table class="min-w-full">
                             <thead class="bg-gray-50 dark:bg-gray-700">
@@ -217,16 +275,16 @@
                     </div>
                 </div>
             </section>
-            
+
             <!-- Sales Page -->
             <section id="sales" class="page-section">
                 <h2 class="text-2xl font-bold mb-6">المبيعات</h2>
-                
+
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
                     <div class="lg:col-span-2">
                         <div class="bg-white dark:bg-gray-800 rounded-xl shadow p-6">
                             <h3 class="text-lg font-medium mb-4">بيع جديد</h3>
-                            
+
                             <div class="mb-4">
                                 <label class="block text-sm font-medium mb-1">المنتج</label>
                                 <div class="grid grid-cols-1 md:grid-cols-5 gap-3">
@@ -248,7 +306,7 @@
                                     <span id="availableStock">المتاح: 0</span>
                                 </div>
                             </div>
-                            
+
                             <div class="mb-4">
                                 <h4 class="font-medium mb-3">عناصر البيع</h4>
                                 <div class="overflow-x-auto">
@@ -268,7 +326,7 @@
                                     </table>
                                 </div>
                             </div>
-                            
+
                             <div class="flex justify-end items-center">
                                 <div class="text-left">
                                     <div class="text-gray-500 dark:text-gray-400">المجموع الفرعي: <span id="cartSubtotal" class="font-medium">ج.م 0.00</span></div>
@@ -277,29 +335,29 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div>
                         <div class="bg-white dark:bg-gray-800 rounded-xl shadow p-6">
                             <h3 class="text-lg font-medium mb-4">إتمام البيع</h3>
-                            
+
                             <div class="mb-4">
                                 <label class="block text-sm font-medium mb-1">اسم العميل (اختياري)</label>
                                 <input type="text" id="customerName" class="w-full border border-gray-300 dark:border-gray-600 dark:bg-gray-700 rounded-lg px-3 py-2">
                             </div>
-                            
+
                             <div class="mb-4">
                                 <label class="block text-sm font-medium mb-1">ملاحظات (اختياري)</label>
                                 <textarea id="saleNotes" rows="3" class="w-full border border-gray-300 dark:border-gray-600 dark:bg-gray-700 rounded-lg px-3 py-2"></textarea>
                             </div>
-                            
+
                             <button id="completeSaleBtn" class="w-full bg-primary text-white rounded-lg px-4 py-3 font-medium text-lg">
                                 إتمام البيع وطباعة الفاتورة
                             </button>
-                            
+
                             <button id="confirmSaleBtn" class="w-full bg-green-600 text-white rounded-lg px-4 py-3 font-medium text-lg mt-2">
                                 تأكيد البيع وإضافة الفاتورة
                             </button>
-                            
+
                             <div id="saleSuccess" class="mt-4 p-3 bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-200 rounded-lg hidden">
                                 <i class="fas fa-check-circle mr-2"></i> تم إتمام البيع بنجاح!
                             </div>
@@ -307,7 +365,7 @@
                     </div>
                 </div>
             </section>
-            
+
             <!-- Invoices Section -->
             <section id="invoices" class="page-section hidden">
                 <div class="flex justify-between items-center mb-6">
@@ -322,7 +380,7 @@
                         </button>
                     </div>
                 </div>
-                
+
                 <div class="bg-white dark:bg-gray-800 rounded-xl shadow overflow-hidden mb-8">
                     <div class="p-4 border-b border-gray-200 dark:border-gray-700 flex justify-between items-center">
                         <div class="relative">
@@ -337,7 +395,7 @@
                             </select>
                         </div>
                     </div>
-                    
+
                     <div class="overflow-x-auto">
                         <table class="min-w-full">
                             <thead class="bg-gray-50 dark:bg-gray-700">
@@ -357,13 +415,13 @@
                     </div>
                 </div>
             </section>
-            
+
             <!-- Returns Section -->
             <section id="returns" class="page-section hidden">
                 <div class="flex justify-between items-center mb-6">
                     <h2 class="text-2xl font-bold">إدارة المرتجعات</h2>
                 </div>
-                
+
                 <div class="bg-white dark:bg-gray-800 rounded-xl shadow overflow-hidden mb-8">
                     <div class="p-4 border-b border-gray-200 dark:border-gray-700">
                         <div class="relative">
@@ -371,7 +429,7 @@
                             <input type="text" id="returnSearch" placeholder="ابحث في المرتجعات..." class="pr-10 pl-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 dark:bg-gray-700 w-64">
                         </div>
                     </div>
-                    
+
                     <div class="overflow-x-auto">
                         <table class="min-w-full">
                             <thead class="bg-gray-50 dark:bg-gray-700">
@@ -379,8 +437,8 @@
                                     <th class="py-3 px-4 text-right">رقم الإرجاع</th>
                                     <th class="py-3 px-4 text-right">رقم الفاتورة</th>
                                     <th class="py-3 px-4 text-right">التاريخ</th>
-                                    <th class="py-3 px-4 text-right">المنتج</th>
-                                    <th class="py-3 px-4 text-right">الكمية</th>
+                                    <th class="py-3 px-4 text-right">العميل</th>
+                                    <th class="py-3 px-4 text-right">نوع الإرجاع</th>
                                     <th class="py-3 px-4 text-right">المبلغ المسترجع</th>
                                     <th class="py-3 px-4 text-left">الإجراءات</th>
                                 </tr>
@@ -392,7 +450,7 @@
                     </div>
                 </div>
             </section>
-            
+
             <!-- Customers Section -->
             <section id="customers" class="page-section hidden">
                 <div class="flex justify-between items-center mb-6">
@@ -401,7 +459,7 @@
                         <i class="fas fa-plus mr-2"></i> إضافة عميل
                     </button>
                 </div>
-                
+
                 <div class="bg-white dark:bg-gray-800 rounded-xl shadow overflow-hidden mb-8">
                     <div class="p-4 border-b border-gray-200 dark:border-gray-700">
                         <div class="relative">
@@ -409,7 +467,7 @@
                             <input type="text" id="customerSearch" placeholder="ابحث عن عميل..." class="pr-10 pl-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 dark:bg-gray-700 w-64">
                         </div>
                     </div>
-                    
+
                     <div class="overflow-x-auto">
                         <table class="min-w-full">
                             <thead class="bg-gray-50 dark:bg-gray-700">
@@ -428,46 +486,46 @@
                     </div>
                 </div>
             </section>
-            
+
             <!-- Reports Section -->
             <section id="reports" class="page-section hidden">
                 <div class="flex justify-between items-center mb-6">
                     <h2 class="text-2xl font-bold">التقارير</h2>
                 </div>
-                
+
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
                     <div class="bg-white dark:bg-gray-800 rounded-xl shadow p-6">
                         <h3 class="text-lg font-medium mb-4">مبيعات الشهر</h3>
                         <canvas id="monthlySalesChart" height="250"></canvas>
                     </div>
-                    
+
                     <div class="bg-white dark:bg-gray-800 rounded-xl shadow p-6">
                         <h3 class="text-lg font-medium mb-4">أفضل المنتجات مبيعاً</h3>
                         <canvas id="topProductsChart" height="250"></canvas>
                     </div>
                 </div>
-                
+
                 <div class="bg-white dark:bg-gray-800 rounded-xl shadow p-6">
                     <h3 class="text-lg font-medium mb-4">تقرير المرتجعات</h3>
                     <canvas id="returnsChart" height="250"></canvas>
                 </div>
             </section>
-            
+
             <!-- Settings Section -->
             <section id="settings" class="page-section hidden">
                 <div class="flex justify-between items-center mb-6">
                     <h2 class="text-2xl font-bold">الإعدادات</h2>
                 </div>
-                
+
                 <div class="bg-white dark:bg-gray-800 rounded-xl shadow p-6 mb-8">
                     <h3 class="text-lg font-medium mb-4">إعدادات النظام</h3>
-                    
+
                     <div class="space-y-4">
                         <div>
                             <label class="block text-sm font-medium mb-1">حد التنبيه بالمخزون المنخفض</label>
                             <input type="number" id="lowStockThreshold" min="1" class="w-full border border-gray-300 dark:border-gray-600 dark:bg-gray-700 rounded-lg px-3 py-2">
                         </div>
-                        
+
                         <div>
                             <label class="block text-sm font-medium mb-1">العملة</label>
                             <select id="currencySetting" class="w-full border border-gray-300 dark:border-gray-600 dark:bg-gray-700 rounded-lg px-3 py-2">
@@ -477,12 +535,12 @@
                                 <option value="ريال">ريال سعودي (ريال)</option>
                             </select>
                         </div>
-                        
+
                         <div class="flex items-center">
                             <input type="checkbox" id="darkModeSetting" class="w-4 h-4 text-primary rounded border-gray-300 focus:ring-primary">
                             <label for="darkModeSetting" class="mr-2 text-sm font-medium">الوضع المظلم</label>
                         </div>
-                        
+
                         <div class="pt-4">
                             <button id="saveSettingsBtn" class="px-4 py-2 bg-primary text-white rounded-lg">
                                 حفظ الإعدادات
@@ -491,10 +549,10 @@
                     </div>
                 </div>
             </section>
-            
+
         </main>
     </div>
-    
+
     <!-- Modals -->
     <!-- Add/Edit Product Modal -->
     <div id="productModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
@@ -535,7 +593,7 @@
             </div>
         </div>
     </div>
-    
+
     <!-- Add/Edit Customer Modal -->
     <div id="customerModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
         <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg w-full max-w-md fade-in">
@@ -569,65 +627,103 @@
             </div>
         </div>
     </div>
-    
-    <!-- Return Product Modal -->
-    <div id="returnModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
-        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg w-full max-w-md fade-in">
+
+    <!-- Return Options Modal -->
+    <div id="returnOptionsModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg w-full max-w-lg fade-in">
             <div class="p-4 border-b border-gray-200 dark:border-gray-700">
-                <h3 class="text-lg font-medium">إرجاع منتج</h3>
+                <h3 class="text-lg font-medium">خيارات الإرجاع</h3>
             </div>
             <div class="p-6">
                 <div class="space-y-4">
-                    <input type="hidden" id="returnInvoiceId">
-                    <div>
-                        <label class="block text-sm font-medium mb-1">العميل</label>
-                        <input type="text" id="returnCustomerName" class="w-full border border-gray-300 dark:border-gray-600 dark:bg-gray-700 rounded-lg px-3 py-2">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium mb-1">اختر المنتج للإرجاع</label>
-                        <select id="returnProductSelect" class="w-full border border-gray-300 dark:border-gray-600 dark:bg-gray-700 rounded-lg px-3 py-2">
-                            <option value="">اختر منتج للإرجاع</option>
-                            <!-- Products will be populated dynamically -->
-                        </select>
-                    </div>
-                    <div class="grid grid-cols-2 gap-4">
-                        <div>
-                            <label class="block text-sm font-medium mb-1">الكمية المباعة</label>
-                            <input type="number" id="returnSoldQty" class="w-full border border-gray-300 dark:border-gray-600 dark:bg-gray-700 rounded-lg px-3 py-2" readonly>
-                        </div>
-                        <div>
-                            <label class="block text-sm font-medium mb-1">الكمية المراد إرجاعها</label>
-                            <input type="number" id="returnQty" min="1" class="w-full border border-gray-300 dark:border-gray-600 dark:bg-gray-700 rounded-lg px-3 py-2">
+                    <input type="hidden" id="returnOptionsInvoiceId">
+                    <div class="text-center">
+                        <p class="mb-4">اختر نوع الإرجاع:</p>
+                        <div class="grid grid-cols-2 gap-4">
+                            <button id="fullReturnBtn" class="p-4 bg-red-100 dark:bg-red-900 rounded-lg border-2 border-red-300 dark:border-red-700">
+                                <i class="fas fa-undo text-red-500 text-2xl mb-2"></i>
+                                <p class="font-medium">إرجاع الفاتورة كاملة</p>
+                            </button>
+                            <button id="partialReturnBtn" class="p-4 bg-blue-100 dark:bg-blue-900 rounded-lg border-2 border-blue-300 dark:border-blue-700">
+                                <i class="fas fa-exchange-alt text-blue-500 text-2xl mb-2"></i>
+                                <p class="font-medium">إرجاع منتجات محددة</p>
+                            </button>
                         </div>
                     </div>
+                </div>
+            </div>
+            <div class="p-4 border-t border-gray-200 dark:border-gray-700 flex justify-end">
+                <button id="cancelReturnOptionsBtn" class="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg">إلغاء</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Partial Return Modal -->
+    <div id="partialReturnModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg w-full max-w-4xl fade-in">
+            <div class="p-4 border-b border-gray-200 dark:border-gray-700">
+                <h3 class="text-lg font-medium">إرجاع منتجات محددة</h3>
+            </div>
+            <div class="p-6 max-h-[70vh] overflow-y-auto">
+                <div class="space-y-4">
+                    <input type="hidden" id="partialReturnInvoiceId">
                     <div>
-                        <label class="block text-sm font-medium mb-1">سعر الإرجاع (ج.م)</label>
-                        <input type="number" id="returnPrice" min="0" step="0.01" class="w-full border border-gray-300 dark:border-gray-600 dark:bg-gray-700 rounded-lg px-3 py-2">
+                        <label class="block text-sm font-medium mb-1">اسم العميل</label>
+                        <input type="text" id="partialReturnCustomerName" class="w-full border border-gray-300 dark:border-gray-600 dark:bg-gray-700 rounded-lg px-3 py-2">
                     </div>
+
                     <div>
                         <label class="block text-sm font-medium mb-1">سبب الإرجاع (اختياري)</label>
-                        <select id="returnReason" class="w-full border border-gray-300 dark:border-gray-600 dark:bg-gray-700 rounded-lg px-3 py-2">
-                            <option value="">اختر سبب الإرجاع</option>
-                            <option value="تالف">منتج تالف</option>
-                            <option value="غير مطابق">غير مطابق للوصف</option>
-                            <option value="خطأ في الشحن">خطأ في الشحن</option>
-                            <option value="تغيير رأي">تغيير رأي</option>
-                            <option value="آخر">سبب آخر</option>
-                        </select>
+                        <input type="text" id="partialReturnReason" placeholder="سبب الإرجاع..." class="w-full border border-gray-300 dark:border-gray-600 dark:bg-gray-700 rounded-lg px-3 py-2">
                     </div>
-                    <div id="otherReasonContainer" class="hidden">
-                        <label class="block text-sm font-medium mb-1">سبب الإرجاع (آخر)</label>
-                        <input type="text" id="otherReturnReason" class="w-full border border-gray-300 dark:border-gray-600 dark:bg-gray-700 rounded-lg px-3 py-2">
+
+                    <div>
+                        <h4 class="font-medium mb-3">منتجات الفاتورة</h4>
+                        <div id="partialReturnProductsList">
+                            <!-- Products will be populated here -->
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg">
+                        <div class="flex justify-between items-center">
+                            <span class="font-medium">إجمالي المبلغ المسترجع:</span>
+                            <span id="partialReturnTotal" class="text-lg font-bold">ج.م 0.00</span>
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="p-4 border-t border-gray-200 dark:border-gray-700 flex justify-end space-x-3">
-                <button id="cancelReturnBtn" class="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg">إلغاء</button>
-                <button id="confirmReturnBtn" class="px-4 py-2 bg-primary text-white rounded-lg">تأكيد الإرجاع</button>
+                <button id="cancelPartialReturnBtn" class="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg">إلغاء</button>
+                <button id="confirmPartialReturnBtn" class="px-4 py-2 bg-primary text-white rounded-lg">تأكيد الإرجاع</button>
             </div>
         </div>
     </div>
-    
+
+    <!-- Return Invoice Modal -->
+    <div id="returnInvoiceModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg w-full max-w-3xl fade-in">
+            <div class="p-4 border-b border-gray-200 dark:border-gray-700 flex justify-between items-center">
+                <h3 class="text-lg font-medium">فاتورة الإرجاع</h3>
+                <div>
+                    <button id="printReturnInvoiceBtn" class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-lg mr-2">
+                        <i class="fas fa-print"></i> طباعة
+                    </button>
+                    <button id="downloadReturnInvoiceBtn" class="px-3 py-1 bg-primary text-white rounded-lg">
+                        <i class="fas fa-download mr-1"></i> PDF
+                    </button>
+                </div>
+            </div>
+            <div class="p-6 overflow-auto max-h-[80vh]">
+                <div id="returnInvoiceContent" class="bg-white dark:bg-gray-900 p-8 arabic-font">
+                    <!-- Return invoice content will be generated here -->
+                </div>
+            </div>
+            <div class="p-4 border-t border-gray-200 dark:border-gray-700 flex justify-end">
+                <button id="closeReturnInvoiceBtn" class="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg">إغلاق</button>
+            </div>
+        </div>
+    </div>
+
     <!-- Confirmation Modal -->
     <div id="confirmModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
         <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg w-full max-w-md fade-in">
@@ -642,7 +738,7 @@
             </div>
         </div>
     </div>
-    
+
     <!-- Invoice Preview Modal -->
     <div id="invoiceModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
         <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg w-full max-w-3xl fade-in">
@@ -667,12 +763,64 @@
             </div>
         </div>
     </div>
-    
+
     <!-- Custom Alert Container -->
     <div id="customAlert" class="custom-alert success hidden">
         <i class="fas fa-check-circle"></i>
         <span id="alertMessage"></span>
     </div>
-<script src="js/script.js"></script>
+    <!-- -------------- my contact ------------------- -->
+    <!-- زر وسائل التواصل -->
+    <div class="fixed bottom-6 left-6 z-40">
+        <button id="contactBtn" class="bg-primary text-white w-14 h-14 rounded-full shadow-lg flex items-center justify-center hover:bg-primary-dark transition-colors">
+            <i class="fas fa-share-alt text-xl"></i>
+        </button>
+
+        <!-- البوب أب -->
+        <div id="contactPopup" class="absolute bottom-16 left-0 bg-white dark:bg-gray-800 rounded-xl shadow-xl p-4 w-64 hidden">
+            <div class="text-center mb-4">
+                <h3 class="font-bold text-lg">وسائل التواصل</h3>
+                <p class="text-gray-600 dark:text-gray-300">مطور النظام</p>
+                <p class="text-gray-600 dark:text-gray-300">ميلاد ماهر</p>
+
+            </div>
+
+            <div class="space-y-3">
+                <!-- واتساب -->
+                <a href="https://wa.me/201128467630" target="_blank" class="flex items-center p-2 rounded-lg bg-green-50 dark:bg-green-900/20 text-green-700 dark:text-green-300 hover:bg-green-100 dark:hover:bg-green-900/30 transition-colors">
+                    <i class="fab fa-whatsapp ml-2"></i>
+                    <span>واتساب</span>
+                </a>
+
+                <!-- جيت هاب -->
+                <a href="https://github.com/meladmaher" target="_blank" class="flex items-center p-2 rounded-lg bg-gray-50 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors">
+                    <i class="fab fa-github ml-2"></i>
+                    <span>GitHub</span>
+                </a>
+<!--
+                !-- بينتريست --
+                <a href="https://pinterest.com/yourusername" target="_blank" class="flex items-center p-2 rounded-lg bg-red-50 dark:bg-red-900/20 text-red-700 dark:text-red-300 hover:bg-red-100 dark:hover:bg-red-900/30 transition-colors">
+                    <i class="fab fa-pinterest ml-2"></i>
+                    <span>Pinterest</span>
+                </a> -->
+
+
+                <!-- البريد الإلكتروني -->
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=kharboshe4@gmail.com" target="_blank" class="flex items-center p-2 rounded-lg bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-300 hover:bg-blue-100 dark:hover:bg-blue-900/30 transition-colors">
+                    <i class="fas fa-envelope ml-2"></i>
+                    <span>البريد الإلكتروني</span>
+                </a>
+            </div>
+
+            <div class="mt-4 pt-3 border-t border-gray-200 dark:border-gray-700 text-center">
+                <p class="text-sm text-gray-600 dark:text-gray-400">© 2025 نظام المخزون</p>
+                <p class="text-sm text-gray-600 dark:text-gray-400">واتساب 201128467630</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- -------------- my contact ------------------- -->
+
+    <script src="js/script.js"></script>
 </body>
 </html>
